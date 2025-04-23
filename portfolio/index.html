@@ -1,0 +1,852 @@
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>saad ali portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    /*................................................3rd education......................................*/
+
+    .neon-text {
+      color: #00fff7;
+      text-shadow:
+        0 0 5px #00fff7,
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 40px #00fff7;
+    }
+    /* Border with no glow by default */
+    .neon-border {
+      border: 2px solid #00fff7;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    /* On hover, add glow and scale up */
+    .neon-border:hover {
+      box-shadow:
+        0 0 5px #00fff7,
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 40px #00fff7;
+      transform: scale(1.05);
+      z-index: 10;
+    }
+    /* Neon glow effect for timeline dots */
+    .neon-dot {
+      background-color: #00fff7;
+      box-shadow:
+        0 0 5px #00fff7,
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 40px #00fff7;
+    }
+
+    /*.....................................................................skill page.....................*/
+
+    .skl{
+      background-color:black;
+      color: white;
+      margin: 0;
+      padding: 2.5rem 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+    .skl h1 {
+      font-weight: 800;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 2rem;
+      user-select: none;
+    }
+    .subheading {
+      font-weight: 700;
+      font-size: 1.25rem;
+      padding: 0.5rem 1.5rem;
+      border: 2px solid #00fff7;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 12px #00fff7;
+      display: inline-block;
+      margin-bottom: 2rem;
+      user-select: none;
+    }
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+    .skills-section {
+      flex: 1 1 400px;
+    }
+    .skills-section h2 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 4rem;
+      user-select: none;
+      padding: 0.5rem 1.5rem;
+      border: 2px solid #00fff7;
+      border-radius: 0.5rem;
+      box-shadow: 0 0 12px #00fff7;
+      display: flex;
+      
+    }
+    /* Technical skills bars */
+    .skill-bar {
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+    .skill-bar .label-container {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+      position: relative;
+      z-index: 2;
+    }
+    .bar-bg {
+      background-color: #1a0f1f;
+      border-radius: 9999px;
+      height: 12px;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .bar-fill {
+      background-color: #00fff7;
+      height: 12px;
+      border-radius: 9999px 0 0 9999px;
+      box-shadow: 0 0 8px #00fff7;
+      transform: translateX(-100%);
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-out;
+    }
+    /* Professional skills circles */
+    .circle-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem 4rem;
+      justify-items: center;
+    }
+    .circle-wrap {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      background: #111827;
+      border-radius: 50%;
+      box-shadow: inset 0 0 10px #00fff7;
+      overflow: visible;
+      opacity: 0;
+      transform: translateX(-150%);
+    }
+    .circle {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+    }
+    .mask,
+    .fill {
+      width: 96px;
+      height: 96px;
+      position: absolute;
+      border-radius: 50%;
+      clip: rect(0px, 96px, 96px, 48px);
+    }
+    .mask.full {
+      clip: rect(0px, 48px, 96px, 0px);
+    }
+    .fill {
+      background: #00fff7;
+      box-shadow: 0 0 8px #00fff7;
+      transition: transform 1s ease;
+      clip: rect(0px, 48px, 96px, 0px);
+    }
+    .inside-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #111827;
+      line-height: 72px;
+      text-align: center;
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      user-select: none;
+      z-index: 2;
+    }
+    .circle-label {
+      margin-top: 1rem;
+      font-weight: 700;
+      font-size: 1rem;
+      user-select: none;
+      text-align: center;
+      max-width: 125px;
+      word-break: break-word;
+    }
+
+    /* Animations */
+    @keyframes slideInBar {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+    @keyframes slideInCircle {
+      0% {
+        transform: translateX(-150%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+    /* Apply animation delays for bars */
+    .bar-fill.html {
+      animation: slideInBar 1s forwards;
+      animation-delay: 0.3s;
+    }
+    .bar-fill.figma {
+      animation: slideInBar 1s forwards;
+      animation-delay: 0.6s;
+    }
+    .bar-fill.javascript {
+      animation: slideInBar 1s forwards;
+      animation-delay: 0.9s;
+    }
+    .bar-fill.css {
+      animation: slideInBar 1s forwards;
+      animation-delay: 1.2s;
+    }
+    /* Circles animation delays */
+    .circle-wrap:nth-child(1) {
+      animation-delay: 0.4s;
+    }
+    .circle-wrap:nth-child(2) {
+      animation-delay: 0.7s;
+    }
+    .circle-wrap:nth-child(3) {
+      animation-delay: 1s;
+    }
+    .circle-wrap:nth-child(4) {
+      animation-delay: 1.3s;
+    }
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .skills-section {
+        width: 100%;
+      }
+      .circle-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 3rem;
+      }
+    }
+    .border-cyan-400 {
+      border-color: #00fff7 !important;
+    }
+    .text-cyan-400 {
+      color: #00fff7 !important;
+    }
+    .bg-cyan-400 {
+      background-color: #00fff7 !important;
+    }
+    .focus\:ring-cyan-400:focus {
+      --tw-ring-color: #00fff7 !important;
+    }
+    .focus\:ring-cyan-400:focus-visible {
+      --tw-ring-color: #00fff7 !important;
+    }
+
+
+
+    /*.............................................contct page....................................................................*/
+
+
+  </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 bg-black z-50 border-b border-gray-900">
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 sm:px-10 md:px-16 py-4">
+      <div class="text-white font-extrabold text-lg sm:text-xl md:text-2xl flex items-center">
+        <span>SAAD</span>
+        <span class="text-cyan-400 ml-1 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)] font-extrabold">ALI</span>
+      </div>
+      <nav>
+        <!-- Desktop nav -->
+        <ul class="hidden md:flex space-x-8 text-sm sm:text-base font-semibold">
+          <li>
+            <a href="#home" class="relative group">
+              <span class="hover:text-cyan-400 transition-colors duration-300">Home</span>
+              <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="relative group">
+           <span class="hover:text-cyan-400 transition-colors duration-300">About</span>
+           <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+          </a></li>
+          <li><a href="#education" class="relative group">
+            <span class="hover:text-cyan-400 transition-colors duration-300"> Education</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+          </a></li>
+          <li><a href="#skills" class="relative group">
+            <span class="hover:text-cyan-400 transition-colors duration-300">Skills
+            </span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+          </a></li>
+          <li><a href="#project" class="relative group">
+            <span class="hover:text-cyan-400 transition-colors duration-300"> Project</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+          </a></li>
+          <li><a href="#contact" class="relative group">
+            <span class="hover:text-cyan-400 transition-colors duration-300"> Contact</span>
+            <span class="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"></span>
+          </a></li>
+        </ul>
+        <!-- Mobile nav toggle button -->
+        <button id="nav-toggle" aria-label="Toggle navigation menu" class="md:hidden text-cyan-400 focus:outline-none">
+          <i class="fas fa-bars fa-lg"></i>
+        </button>
+        <!-- Mobile nav menu -->
+        <ul id="mobile-menu" class="hidden absolute right-6 top-16 bg-black border border-cyan-400 rounded-md py-2 w-40 text-center space-y-2 font-semibold text-cyan-400 z-50">
+          <li><a href="#home" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">Home</a></li>
+          <li><a href="#about" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">About</a></li>
+          <li><a href="#education" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">Education</a></li>
+          <li><a href="#skills" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">Skills</a></li>
+          <li><a href="#project" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">Projets</a></li>
+          <li><a href="#contact" class="block px-4 py-1 hover:bg-cyan-400 hover:text-black rounded transition">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="pt-20 scroll-smooth">
+
+    <!-- Page 1: Home -->
+    <section id="home" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 sm:px-10 md:px-16 gap-12 md:gap-24 py-12 md:py-20 max-w-7xl mx-auto">
+      <section class="max-w-xl md:max-w-lg">
+        <h1 class="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-tight mb-2">
+          Hi, I'm
+          <span class="text-cyan-400 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]">SAAD ALI</span>
+        </h1>
+        <h2 class="text-xl sm:text-3xl font-semibold mb-4"> 
+          <span class="text-cyan-400 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]"> An Android Developer</span>
+        </h2>
+        <p class="text-xs sm:text-lg font-semibold leading-snug mb-6 max-w-md">
+          I specialize in crafting intuitive and high-performance Android applications. My passion lies in transforming innovative ideas into user-friendly mobile solutions that make a real impact.
+        </p>
+        <div class="flex space-x-4 mb-8">
+          <a aria-label="LinkedIn" href="https://www.linkedin.com/in/saad-ali-0047b9312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a aria-label="GitHub" href="https://github.com/CyberWala-Saad" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]">
+            <i class="fab fa-github"></i>
+          </a>
+          <a aria-label="Instagram" href="https://www.instagram.com/_saad_ali?igsh=MWdrMnVpNmF0em53cw==" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a aria-label="Email" href="mailto:saadali23495097@gmail.com" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <div>
+          <a 
+            href="cv.pdf" 
+            download 
+            class="inline-flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-cyan-400 text-black font-semibold drop-shadow-[0_0_8px_rgba(22,255,255,0.7)] hover:brightness-110 transition duration-300"
+          >
+            <i class="fas fa-download"></i> Download CV
+          </a>
+        </div>
+        
+        
+        </div>
+      </section>
+     
+      <section class="flex-shrink-0">
+        <img
+          alt="Profile image of saad ali inside a circular frame with glowing cyan border"
+          src="sd.jpg"
+          class="rounded-full object-cover"
+          style="
+            width: 400px;
+            height: 400px;
+            box-shadow: 0 0 20px rgba(22, 255, 255, 0.7);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+          "
+          onmouseover="this.style.transform='scale(1.08)'; this.style.boxShadow='0 0 25px 10px rgba(22, 255, 255, 0.5)'; this.style.filter='blur(0.2px)'"
+          onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 20px rgba(22, 255, 255, 0.7)'; this.style.filter='blur(0)'"
+        />
+      </section>
+      
+      
+    </section>
+
+    <!-- Page 2: About -->
+    <section id="about" class="flex flex-col items-center justify-center min-h-screen p-6 space-y-3" style="font-family: 'Inter', sans-serif; background-color: #000000;">
+      <h1 class="text-6xl font-extrabold text-center">
+        <span class="text-white">About</span>
+        <span class="text-cyan-400">Me</span>
+      </h1>
+    
+      <div class="text-white text-left transition-all duration-300 mt-8"
+        style="
+          background-color: #111111;
+          border: 2px solid rgba(67, 220, 247, 0.3);
+          border-radius: 1rem;
+          max-width: 900px;
+          margin: 3.5rem auto;   /* Slightly more margin */
+          padding: 3rem;     /* Moderate padding inside */
+          backdrop-filter: blur(0px);
+        "
+        onmouseover="this.style.borderColor='#06b6d4'; this.style.boxShadow='0 0 20px #06b6d4'; this.style.backdropFilter='blur(8px)'"
+        onmouseout="this.style.borderColor='rgba(6,182,212,0.3)'; this.style.boxShadow='none'; this.style.backdropFilter='blur(0px)'"
+      >
+        <p class="text-xl leading-relaxed">
+          I'm a passionate Android Developer with hands-on experience in building modern mobile applications using Kotlin, Jetpack Compose, and the MVVM architecture. I focus on creating clean UIs, efficient architectures, and scalable app solutions.
+        </p>
+        <p class="text-xl leading-relaxed mt-8">
+          My development process includes using the latest Android tools and best practices to deliver fast, reliable, and engaging user experiences. I'm continuously learning and exploring new technologies to improve my skillset and build better apps every day.
+        </p>
+      </div>
+    </section>
+    
+    
+
+    <!-- Page 3: Education -->
+    <section class="text-white min-h-screen" id="education">
+
+      <main class="max-w-5xl mx-auto px-6 py-16">
+        <h1 class="text-white font-extrabold text-6xl text-center mb-16">Education</h1>
+    
+        <div class="relative flex flex-col items-center">
+          <!-- Vertical timeline line -->
+          <div class="absolute top-0 bottom-0 left-1/2 w-[2px] bg-[#00fff7] opacity-70"></div>
+    
+          <!-- 2019 Left - High School -->
+          <div class="flex w-full max-w-4xl justify-start mb-20 relative">
+            <div class="flex flex-col items-center absolute left-1/2 -translate-x-1/2">
+              <div class="neon-dot w-4 h-4 rounded-full mb-1"></div>
+              <span class="text-xs font-semibold text-white mb-0.5">2019</span>
+            </div>
+            <div class="neon-border rounded-full max-w-[320px] px-8 py-6 ml-auto bg-[#111111] cursor-pointer">
+              <h3 class="font-semibold text-white mb-2 text-sm">Pakistan Model High School</h3>
+              <p class="text-xs text-white leading-tight">
+                I completed my Matriculation in Science, where I built a basic understanding of core science subjects.
+              </p>
+            </div>
+          </div>
+    
+          <!-- 2021 Right - College -->
+          <div class="flex w-full max-w-4xl justify-end mb-20 relative">
+            <div class="flex flex-col items-center absolute left-1/2 -translate-x-1/2">
+              <div class="neon-dot w-4 h-4 rounded-full mb-1"></div>
+              <span class="text-xs font-semibold text-white mb-0.5">2021</span>
+            </div>
+            <div class="neon-border rounded-full max-w-[320px] px-8 py-6 mr-auto bg-[#111111] cursor-pointer">
+              <h3 class="font-semibold text-white mb-2 text-sm">Punjab Group Of Colleges</h3>
+              <p class="text-xs text-white leading-tight">
+                I pursued Intermediate in Computer Science (ICS), focusing on subjects like Computer Science and Mathematics.
+                This phase sparked my passion for programming and software development.
+              </p>
+            </div>
+          </div>
+    
+          <!-- 2025 Left - University -->
+          <div class="flex w-full max-w-4xl justify-start mb-20 relative">
+            <div class="flex flex-col items-center absolute left-1/2 -translate-x-1/2">
+              <div class="neon-dot w-4 h-4 rounded-full mb-1"></div>
+              <span class="text-xs font-semibold text-white mb-0.5">2025</span>
+            </div>
+            <div class="neon-border rounded-full max-w-[320px] px-8 py-6 ml-auto bg-[#111111] cursor-pointer">
+              <h3 class="font-semibold text-white mb-2 text-sm">GCUF</h3>
+              <p class="text-xs text-white leading-tight">
+                I earned my BS in Computer Science, where I explored software engineering, databases, and mobile app development.
+                This experience shaped me into a professional Android developer.
+              </p>
+            </div>
+          </div>
+    
+        </div>
+      </main>
+
+    </section>
+    
+    <!-- Page 4: Skills -->
+    <section id="skills" class="skl">
+      <h1 style="color: white; font-size: 4rem; font-weight: 800; user-select:none; margin-bottom: 100px;">Skills</h1>
+  <div class="container">
+    <section class="skills-section">
+      <h2>Technical Skills</h2>
+      <div class="skill-bar">
+        <div class="label-container">
+          <span> Jetpack Compose</span>
+          <span>72%</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill html" style="width: 72%;"></div>
+        </div>
+      </div>
+      <div class="skill-bar">
+        <div class="label-container">
+          <span>Kotlin Programming</span>
+          <span>90%</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill figma" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="skill-bar">
+        <div class="label-container">
+          <span>Firebase </span>
+          <span>80%</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill javascript" style="width: 80%;"></div>
+        </div>
+      </div>
+      <div class="skill-bar">
+        <div class="label-container">
+          <span>MVVM Architecture</span>
+          <span>62%</span>
+        </div>
+        <div class="bar-bg">
+          <div class="bar-fill css" style="width: 62%;"></div>
+        </div>
+      </div>
+    </section>
+    <section class="skills-section">
+      <h2>Professional Skills</h2>
+      <div class="circle-grid">
+        <div class="flex flex-col items-center">
+          <div class="circle-wrap">
+            <div class="circle">
+              <div class="mask full">
+                <div class="fill" style="transform: rotate(324deg);"></div>
+              </div>
+              <div class="mask half">
+                <div class="fill" style="transform: rotate(180deg);"></div>
+              </div>
+              <div class="inside-circle">90%</div>
+            </div>
+          </div>
+          <div class="circle-label">Team Work</div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="circle-wrap">
+            <div class="circle">
+              <div class="mask full">
+                <div class="fill" style="transform: rotate(288deg);"></div>
+              </div>
+              <div class="mask half">
+                <div class="fill" style="transform: rotate(180deg);"></div>
+              </div>
+              <div class="inside-circle">80%</div>
+            </div>
+          </div>
+          <div class="circle-label">Creativity</div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="circle-wrap">
+            <div class="circle">
+              <div class="mask full">
+                <div class="fill" style="transform: rotate(198deg);"></div>
+              </div>
+              <div class="mask half">
+                <div class="fill" style="transform: rotate(180deg);"></div>
+              </div>
+              <div class="inside-circle">55%</div>
+            </div>
+          </div>
+          <div class="circle-label">Project Mangement</div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="circle-wrap">
+            <div class="circle">
+              <div class="mask full">
+                <div class="fill" style="transform: rotate(252deg);"></div>
+              </div>
+              <div class="mask half">
+                <div class="fill" style="transform: rotate(180deg);"></div>
+              </div>
+              <div class="inside-circle">70%</div>
+            </div>
+          </div>
+          <div class="circle-label">Comiunication</div>
+        </div>
+      </div>
+    </section>
+  </div>
+    </section>
+
+    <!-- Page 5: project -->
+    <main class="max-w-7xl mx-auto px-6 py-12" id="project">
+      <h1 class="text-white text-6xl font-extrabold mb-10 text-center">
+       PROJECT
+      </h1>
+      <section aria-label="Testimonials" class="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
+       <!-- Thomas -->
+       <article class="bg-[#0f0f0f] rounded-lg p-8 flex flex-col items-center text-center border border-[#222222] hover:border-cyan-400 hover:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] hover:transition hover:ease-in-out hover:duration-300">
+        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border border-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
+         <img alt="Portrait of car care system" class="w-full h-full object-cover" height="96" src="CR.png" width="96"/>
+        </div>
+        <h2 class="font-bold text-white text-lg mb-2">
+         CAR CARE APP
+        </h2>
+        <div class="text-yellow-400 mb-3 space-x-0.5">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </div>
+        <p class="text-[10px] leading-tight text-white/80">
+         "A smart Android app to manage car maintenance, service records, and reminders — all in one place.
+         Built with Kotlin, Jetpack Compose, and MVVM, focusing on clean UI and smooth user experience.
+         Designed to simplify car care with modern mobile tech."
+        </p>
+       </article>
+       <!-- lecture schedule -->
+       <article class="bg-[#0f0f0f] rounded-lg p-8 flex flex-col items-center text-center border border-[#222222] hover:border-cyan-400 hover:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] hover:transition hover:ease-in-out hover:duration-300">
+        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border border-cyan-400 drop-shadow-[0_0_8px_rgba(6,182,212,0.8)]">
+         <img alt="logo of smart lecture" class="w-full h-full object-cover" height="96" src="lc.png" width="96"/>
+        </div>
+        <h2 class="font-bold text-white text-lg mb-2">
+         SMART LECTURE APP
+        </h2>
+        <div class="text-yellow-400 mb-3 space-x-0.5">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </div>
+        <p class="text-[10px] leading-tight text-white/80">
+         "An app that helps students and teachers organize lectures and class schedules efficiently.
+         Features timetable generation, reminders, and dynamic slot adjustments.
+         Developed with Jetpack Compose & Room Database for offline access."
+        </p>
+       </article>
+       <!-- SPORT -->
+       <article class="bg-[#0f0f0f] rounded-lg p-8 flex flex-col items-center text-center border border-[#222222] hover:border-cyan-400 hover:drop-shadow-[0_0_20px_rgba(6,182,212,0.8)] hover:transition hover:ease-in-out hover:duration-300">
+        <div class="w-24 h-24 rounded-full overflow-hidden mb-4 border border-cyan-400 text-center drop-shadow-[0_0_20px_rgba(6,182,212,0.8)]">
+         <img alt="LOGO OF SPORTS" class="w-full h-full object-cover" height="96" src="spt.png" width="96"/>
+        </div>
+        <h2 class="font-bold text-white text-lg mb-2">
+         SPORTS REGGISTRATION APP
+        </h2>
+        <div class="text-yellow-400 mb-3 space-x-0.5">
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+         <i class="fas fa-star">
+         </i>
+        </div>
+        <p class="text-[10px] leading-tight text-white/80">
+         "An Android app for students to register for college sports events with ease.
+         Includes event listings, category selection, and confirmation tracking.
+         Built using Kotlin and MVVM, with a focus on user-friendly UI."
+        </p>
+       </article>
+      </section>
+     </main>
+
+    <!-- Page 6: Contact -->
+   
+      <section id="contact" class="bg-black min-h-screen flex items-center justify-center p-4">
+        <main class="max-w-5xl w-full">
+          <h1 class="text-white text-6xl font-extrabold mb-10 text-center">
+            Contact <span class="text-cyan-400">Me</span>
+          </h1>
+          <form
+            action="mailto:saadali23495097@gmail.com"
+            method="POST"
+            enctype="text/plain"
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+            autocomplete="off"
+          >
+            <div class="space-y-4">
+              <input
+                type="text"
+                name="Full Name"
+                placeholder="Full Name"
+                class="w-full rounded-lg border border-cyan-400 bg-transparent px-4 py-3 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email"
+                class="w-full rounded-lg border border-cyan-400 bg-transparent px-4 py-3 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              />
+              <input
+                type="tel"
+                name="Phone Number"
+                placeholder="Phone Number"
+                class="w-full rounded-lg border border-cyan-400 bg-transparent px-4 py-3 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              />
+              <input
+                type="text"
+                name="Subject"
+                placeholder="Subject"
+                class="w-full rounded-lg border border-cyan-400 bg-transparent px-4 py-3 text-gray-300 placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              />
+            </div>
+            <div class="flex flex-col justify-between">
+              <textarea
+                name="Message"
+                placeholder="Your Message"
+                rows="8"
+                class="w-full rounded-lg border border-cyan-400 bg-transparent px-4 py-3 text-gray-300 placeholder-gray-600 resize-none focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                required
+              ></textarea>
+              <button
+                type="submit"
+                class="mt-6 self-start bg-cyan-400 text-black font-semibold rounded-full px-6 py-2 relative hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-cyan-400"
+                style="box-shadow: 0 0 15px 5px rgba(0, 255, 247, 0.7);  margin-left: 8rem;"
+              >
+                Send Message
+              </button>
+            </div>
+          </form>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-gray-900 py-6 mt-12">
+    <div class="max-w-7xl mx-auto flex justify-center space-x-8 text-cyan-400 text-2xl">
+      
+      <a href="https://www.instagram.com/_saad_ali?igsh=MWdrMnVpNmF0em53cw==" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]" aria-label="Instagram" class="hover:text-white transition">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:saadali23495097@gmail.com" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]" aria-label="Email" class="hover:text-white transition">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/saad-ali-0047b9312?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]" aria-label="LinkedIn" class="hover:text-white transition">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://github.com/CyberWala-Saad" target="_blank" rel="noopener" class="w-8 h-8 flex items-center justify-center rounded-full border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-black transition-colors duration-300 drop-shadow-[0_0_8px_rgba(22,255,255,0.7)]" aria-label="LinkedIn" class="hover:text-white transition">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById("nav-toggle");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    navToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+
+    // Skills animation logic
+    // Animate skill bars and circles every time #skills section enters viewport
+    const skillsSection = document.getElementById('skills');
+    const barFills = skillsSection.querySelectorAll('.bar-fill');
+    const circleWraps = skillsSection.querySelectorAll('.circle-wrap');
+
+    // Function to reset and trigger animations
+    function animateSkills() {
+      // Reset bars
+      barFills.forEach(bar => {
+        bar.style.animation = 'none';
+        // Force reflow to restart animation
+        void bar.offsetWidth;
+      });
+      // Reset circles
+      circleWraps.forEach(circle => {
+        circle.style.animation = 'none';
+        circle.style.opacity = '0';
+        circle.style.transform = 'translateX(-150%)';
+        void circle.offsetWidth;
+      });
+
+      // Trigger animations with delays
+      barFills.forEach((bar, index) => {
+        let delay = 0.3 + index * 0.3;
+        bar.style.animation = `slideInBar 1s forwards`;
+        bar.style.animationDelay = `${delay}s`;
+      });
+
+      circleWraps.forEach((circle, index) => {
+        let delay = 0.4 + index * 0.3;
+        circle.style.animation = `slideInCircle 1s forwards`;
+        circle.style.animationDelay = `${delay}s`;
+      });
+    }
+
+    // Use IntersectionObserver to detect when skills section is visible
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) {
+          animateSkills();
+        }
+      });
+    }, { threshold: 0.5 });
+
+    observer.observe(skillsSection);
+  </script>
+</body>
+</html>
